@@ -26,17 +26,6 @@ app.UseAuthorization();
 app.MapControllers();
 
 
-string[] Words = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
-Random rnd = new Random();
-int num = rnd.Next(1, 10);
-
-string random = Words[num]; 
-
-app.MapGet("All", (Func<string>)(() => "10 9 8 7 6 5 4 3 2 1"));
-app.MapGet("Single", (Func<string>)(() => random));
-app.MapGet("Sorted", (Func<string>)(() => "1 2 3 4 5 6 7 8 9 10"));
-
-
 
 
 app.Run();
