@@ -30,35 +30,59 @@ namespace FirstWebAPI.Controllers
             })
             .ToArray();
         }
-
-
         [HttpGet("All")]
 
-        public string[] GetAll(string Language)
+        public string[]? GetAll(string Language)
             {
-            WordFactory factory = WordFactory.getInstance();
-            WordInterface word= factory.getWordInterface(Language);
-            return word.GetAll();
+
+            if (Language == null)
+            {
+                return null;
             }
 
-
+            else
+            {
+                WordFactory factory = WordFactory.getInstance();
+                WordInterface word = factory.getWordInterface(Language);
+                return word.GetAll();
+            }
+            }
         [HttpGet("AllSorted")]
 
-        public string[] GetSorted(string Language)
+        public string[]? GetSorted(string Language)
         {
-            WordFactory factory = WordFactory.getInstance();
-            WordInterface word = factory.getWordInterface(Language);
-            return word.GetSorted();
+
+            if (Language == null) { 
+            
+                return null;
+            }
+
+            else
+            {
+                WordFactory factory = WordFactory.getInstance();
+                WordInterface word = factory.getWordInterface(Language);
+                return word.GetSorted();
+            }
         }
 
 
         [HttpGet("One")]
-
-        public string GetOne(string Language)
+        public string? GetOne(string Language)
         {
+
+            if(Language == null) {
+
+                return null;
+            }
+
+            else
+            { 
+
             WordFactory factory = WordFactory.getInstance();
             WordInterface word = factory.getWordInterface(Language);
-            return word.GetOne();   
+            return word.GetOne();
+            }
+
         }
 
 
