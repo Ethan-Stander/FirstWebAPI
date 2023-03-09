@@ -69,7 +69,6 @@ namespace FirstWebAPI.Controllers
         [HttpGet("One")]
         public string? GetOne(string Language)
         {
-
             if(Language == null) {
 
                 return null;
